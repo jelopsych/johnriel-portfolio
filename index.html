@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johnriel L. Orellano | HR & Operations Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent-bg: #eff6ff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+      --radius: 12px;
+      --max-width: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 60px 20px 50px;
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-title h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: #1e293b;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+    }
+    .btn-secondary:hover {
+      background-color: #334155;
+      text-decoration: none;
+    }
+
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 12px 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .bio-text {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .value-box {
+      background: var(--accent-bg);
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-top: 16px;
+    }
+
+    .value-box h4 {
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    /* STAR Case Study */
+    .star-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #e0e7ff;
+      color: #3730a3;
+      margin-bottom: 8px;
+    }
+
+    .case-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .case-section {
+      margin-bottom: 12px;
+    }
+
+    .case-section h5 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* Skills Table/Grid */
+    .skill-category {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+
+    /* Timeline & Certs */
+    .cert-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .cert-table th, .cert-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cert-table th {
+      background: #f1f5f9;
+      font-weight: 600;
+    }
+
+    /* Reference Card */
+    .ref-card {
+      border-left: 3px solid var(--primary);
+      padding-left: 16px;
+    }
+
+    .ref-name { font-weight: 600; font-size: 1rem; }
+    .ref-title { font-size: 0.85rem; color: var(--text-muted); }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title h1 { font-size: 2rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Executive Hub -->
+  <header>
+    <div class="container hero-content">
+      <div class="hero-title">
+        <h1>Johnriel L. Orellano</h1>
+        <p>Human Resources & Operations Professional</p>
+      </div>
+      <div class="contact-bar">
+        <span class="contact-item">📍 Imus City, Cavite, Philippines</span>
+        <span class="contact-item">📞 +63 993 404 5422</span>
+        <span class="contact-item">✉️ <a href="mailto:jeorellanno0527@gmail.com" style="color: #93c5fd;">jeorellanno0527@gmail.com</a></span>
+        <span class="contact-item">🔗 <a href="https://www.linkedin.com/in/johnriel-lopez-orellano-432148264" target="_blank" style="color: #93c5fd;">LinkedIn Profile</a></span>
+      </div>
+      <div class="cta-group">
+        <a href="https://drive.google.com/file/d/1Q_4IdWspQXmsiknFnRiCwfxQQMtCblFC/view?usp=drivesdk" target="_blank" class="btn btn-primary">📄 Download CV (PDF)</a>
+        <a href="https://drive.google.com/file/d/1OUlyBqu1vrB-IVwTw-Izh7o99UIfjwzZ/view?usp=drivesdk" target="_blank" class="btn btn-secondary">✉️ View Cover Letter</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="sticky-nav">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="#about">Executive Summary</a></li>
+        <li><a href="#case-studies">Featured Case Studies</a></li>
+        <li><a href="#skills">Competencies</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#credentials">Certifications & Education</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Executive Summary Section -->
+    <section id="about">
+      <h2 class="section-title">Executive Identity & Strategic Vision</h2>
+      <div class="card">
+        <p class="bio-text">
+          Strategic Human Resources and Operations Professional with a BS in Psychology, adept at bridging behavioral science with labor compliance, pre-payroll governance, and workflow automation. Specializes in resolving operational friction across enterprise timekeeping audits, full-lifecycle talent acquisition, and data security under R.A. 10173 (Data Privacy Act of 2012). Proven track record of engineering executive reporting tools, deploying AI-driven process optimizations, and leading non-discriminatory Diversity, Equity, and Inclusion (DEI) initiatives.
+        </p>
+        
+        <div class="grid-2" style="margin-top: 20px;">
+          <div class="value-box">
+            <h4>Vision</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">To be a transformative HR and Operations Leader who bridges human behavior with operational excellence—building compliant, data-informed, and empathetic workplace environments.</p>
+          </div>
+          <div class="value-box">
+            <h4>Mission</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">To deliver HR governance, precise workforce timekeeping, and executive reporting by leveraging technology, psychological principles, and Philippine labor laws.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- In-Depth Case Studies -->
+    <section id="case-studies">
+      <h2 class="section-title">Featured Case Studies (STAR-I Framework)</h2>
+      
+      <div class="card">
+        <span class="star-badge">Case Study 1: Analytics & Timekeeping</span>
+        <h3 class="case-title">Enterprise Timekeeping Audit & Executive Dashboard Automation</h3>
+        
+        <div class="case-section">
+          <h5>Problem Statement & Context</h5>
+          <p class="bio-text" style="font-size: 0.95rem;">Data Lake Inc. faced operational friction due to manual timekeeping punch discrepancies, unverified biometric logs across shift allocations, and decentralized operational documentation, creating risk during pre-payroll processing.</p>
+        </div>
+
+        <div class="case-section">
+          <h5>Personal Ownership & Execution</h5>
+          <p class="bio-text" style="font-size: 0.95rem;">Served as Documentation & Reporting Lead. Implemented dual-system governance to validate biometric logs (Biologs) against physical DTR entries. Automated reconciliation via Google Apps Script/Excel VBA and built real-time executive Power BI dashboards aligned with R.A. 10173.</p>
+        </div>
+
+        <div class="case-section">
+          <h5>Quantifiable Impact</h5>
+          <ul style="padding-left: 20px; font-size: 0.95rem; color: var(--text-muted);">
+            <li>Reconciled high-volume attendance records daily, mitigating pre-payroll adjustments.</li>
+            <li>Maintained 100% compliance with internal SLAs on cross-departmental documentation verification.</li>
+            <li>Secured workforce attendance databases in full compliance with the Data Privacy Act of 2012.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="star-badge">Case Study 2: Talent Acquisition</span>
+        <h3 class="case-title">End-to-End Academic Talent Acquisition & HR Governance</h3>
+        
+        <div class="case-section">
+          <h5>Problem Statement & Context</h5>
+          <p class="bio-text" style="font-size: 0.95rem;">Cachapero Academe Inc. required a standardized recruitment pipeline for academic faculty and administrative positions, along with audited 201 file management and structured leave tracking.</p>
+        </div>
+
+        <div class="case-section">
+          <h5>Personal Ownership & Execution</h5>
+          <p class="bio-text" style="font-size: 0.95rem;">Functioned as HR/Admin Assistant. Standardized sourcing, preliminary screening interviews, pre-employment psychological assessment batteries, background credential vetting, and physical/digital access controls for 201 files.</p>
+        </div>
+
+        <div class="case-section">
+          <h5>Quantifiable Impact</h5>
+          <ul style="padding-left: 20px; font-size: 0.95rem; color: var(--text-muted);">
+            <li>Streamlined time-to-hire through structured candidate screening pipelines.</li>
+            <li>Achieved 100% audit accuracy across background credential checks and 201 file access logs.</li>
+            <li>Eliminated leave calculation discrepancies prior to pre-payroll submission.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Matrix -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Technical Competency Matrix</h2>
+      <div class="card grid-2">
+        <div>
+          <div class="skill-category">HR Operations & Governance</div>
+          <div class="tag-cloud" style="margin-bottom: 16px;">
+            <span class="tag">End-to-End Recruitment</span>
+            <span class="tag">Pre-Payroll Governance</span>
+            <span class="tag">Biometrics (Biologs)</span>
+            <span class="tag">201 File Security</span>
+            <span class="tag">Background Vetting</span>
+          </div>
+
+          <div class="skill-category">Data Analytics & Automation</div>
+          <div class="tag-cloud" style="margin-bottom: 16px;">
+            <span class="tag">Power BI</span>
+            <span class="tag">Advanced Excel / VBA</span>
+            <span class="tag">Google Sheets (Apps Script)</span>
+            <span class="tag">Executive Dashboards</span>
+          </div>
+
+          <div class="skill-category">AI & Digital Optimization</div>
+          <div class="tag-cloud">
+            <span class="tag">Google Gemini</span>
+            <span class="tag">Microsoft Copilot</span>
+            <span class="tag">ChatGPT Prompting</span>
+            <span class="tag">Google AI Studio</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="skill-category">Labor Law & Statutory Compliance</div>
+          <div class="tag-cloud" style="margin-bottom: 16px;">
+            <span class="tag">R.A. 10173 (Data Privacy)</span>
+            <span class="tag">Safe Spaces Act</span>
+            <span class="tag">OSHS Mandates</span>
+            <span class="tag">Expanded Maternity / Magna Carta</span>
+            <span class="tag">Lawful Termination</span>
+          </div>
+
+          <div class="skill-category">Psychology, Counseling & Media</div>
+          <div class="tag-cloud">
+            <span class="tag">Clinical Intake Screening</span>
+            <span class="tag">Motivational Interviewing</span>
+            <span class="tag">DEI Advocacy</span>
+            <span class="tag">Adobe Photoshop / Premiere Pro</span>
+            <span class="tag">Event Hosting / MC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience">
+      <h2 class="section-title">Career Journey</h2>
+      
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+          <h3 style="font-size: 1.1rem; font-weight: 600;">Documentation and Reporting Lead</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">March 2026 – September 2026</span>
+        </div>
+        <p style="color: var(--primary); font-size: 0.9rem; font-weight: 500;">Data Lake Inc.</p>
+        <p class="bio-text" style="font-size: 0.9rem; margin-top: 8px;">Engineered corporate reporting mechanisms, built executive dashboards, and conducted timekeeping data audits across project registers while ensuring SLA compliance.</p>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+          <h3 style="font-size: 1.1rem; font-weight: 600;">Documentation Specialist</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">December 2025 – March 2026</span>
+        </div>
+        <p style="color: var(--primary); font-size: 0.9rem; font-weight: 500;">Data Lake Inc. / Evertrust Business Solution Inc.</p>
+        <p class="bio-text" style="font-size: 0.9rem; margin-top: 8px;">Managed biometric profiling (Biologs), dual-system reconciliation against manual DTR entries, and daily attendance edits aligned with R.A. 10173.</p>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+          <h3 style="font-size: 1.1rem; font-weight: 600;">HR / Administrative Assistant</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">February 2025 – October 2025</span>
+        </div>
+        <p style="color: var(--primary); font-size: 0.9rem; font-weight: 500;">Cachapero Academe Inc.</p>
+        <p class="bio-text" style="font-size: 0.9rem; margin-top: 8px;">Directed end-to-end recruitment, psychological testing, onboarding, 201 file security, and pre-payroll timekeeping registers.</p>
+      </div>
+    </section>
+
+    <!-- Credentials & Education -->
+    <section id="credentials">
+      <h2 class="section-title">Certifications & Academic Training</h2>
+      
+      <div class="card">
+        <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 8px;">Formal Education</h3>
+        <p style="font-size: 0.95rem; font-weight: 500;">Bachelor of Science in Psychology</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Cavite State University – Imus Campus | Graduated: September 2023</p>
+
+        <h3 style="font-size: 1.05rem; font-weight: 600; margin-top: 20px; margin-bottom: 8px;">Key Certifications & Workshops</h3>
+        <div style="overflow-x: auto;">
+          <table class="cert-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Program Title</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Analytics</td>
+                <td>Power BI Beginner to Pro Workshop</td>
+                <td>July 2026</td>
+              </tr>
+              <tr>
+                <td>Labor Compliance</td>
+                <td>Anti-Sexual Harassment Law & Safe Spaces Act</td>
+                <td>June 2026</td>
+              </tr>
+              <tr>
+                <td>Labor Compliance</td>
+                <td>Magna Carta & Expanded Maternity Leave Law</td>
+                <td>June 2026</td>
+              </tr>
+              <tr>
+                <td>Labor Compliance</td>
+                <td>OSHS Law Mandated Policies & Reportorials</td>
+                <td>June 2026</td>
+              </tr>
+              <tr>
+                <td>Labor Compliance</td>
+                <td>Lawful Termination in the Workplace</td>
+                <td>August 2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section id="references">
+      <h2 class="section-title">Validation & Professional References</h2>
+      <div class="grid-2">
+        <div class="card ref-card">
+          <div class="ref-name">Joel Corpuz</div>
+          <div class="ref-title">HR Coordinator | Data Lake Inc.</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">📞 +63 929 463 2839 | ✉️ joelcorpuz50@gmail.com</p>
+        </div>
+        <div class="card ref-card">
+          <div class="ref-name">Karlo Barsales, RN</div>
+          <div class="ref-title">Clinic Nurse Manager | Hero by Loveyourself Inc.</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">📞 +63 917 882 6770 | ✉️ kbarsales@loveyourself.ph</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Johnriel L. Orellano. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
